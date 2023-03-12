@@ -11,7 +11,9 @@
 
 body{
     display: flex;
+    justify-content: center;
     height: 100vh;
+
     background-image: linear-gradient( to top, var(--azul-claro), var(--azul-escuro));
 }
 
@@ -19,6 +21,10 @@ body::after{
     content: "";
     width: 10vw;
     height: 10vw;
+
+    min-width: 75px;
+    min-height: 75px;
+
     border-radius: 100%;
     background-color: white;
     position: absolute;
@@ -29,9 +35,9 @@ body::after{
 
 header{
     position: absolute;
-    width: 100vw;
     text-align: center;
     top: var(--margin-top);
+    width: 100%;
 }
 #tema{
     color: white;
@@ -42,16 +48,16 @@ header{
 }
 
 main{
+    position: relative;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: flex-end;
-    gap: 10px;
+    justify-content: center;
 }
 
 #forca{
     margin-top: calc(var(--margin-top) * 2.5);
-    margin-left: 5vw;
     margin-bottom: 2vh;
     width: fit-content;
 }
