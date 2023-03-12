@@ -1,17 +1,25 @@
-class Forca {
+export class Forca {
     static hp = 6;
+    #thema
+    #word
+    #endGame
 
-    constructor(palavra = {thema: 'fruta', word: 'uva'}) {
-        this.#tema = palavra.thema;
-        this.#palavra = palavra.word;
+    constructor(thema, word) {
+        this.#thema = thema.toUpperCase();
+        this.#word = word.toUpperCase();
         this.#endGame = false;
     }
 
-    renderGame(){
+    renderGame() {
     }
 
-    checkEndGame(){
-        if(this.hp >= 0){
+    get word() { return this.#word }
+    get thema() { return this.#thema }
+    get characters() { return [...this.#word] }
+    
+
+    checkEndGame() {
+        if (this.hp >= 0) {
             this.#endGame = true;
             alert('O jogo acabou');
         }
