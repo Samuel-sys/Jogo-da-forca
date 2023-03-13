@@ -73,9 +73,9 @@ main{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 5px;
 }
 .letra{
-    width: 5vw;
     font-size: 5vw;
     color: white;
 }
