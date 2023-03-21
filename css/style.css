@@ -50,10 +50,8 @@ header{
 main{
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: center;
 }
 
 #forca{
@@ -64,7 +62,7 @@ main{
 
 #forcaImg{
     max-width: 25vw;
-    min-width: 120px;
+    min-width: 250px;
 }
 
 #palavra{
