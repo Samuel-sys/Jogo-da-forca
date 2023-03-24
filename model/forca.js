@@ -8,7 +8,7 @@ export class Forca {
 
     constructor(thema, word) {
         this.#thema = thema.toUpperCase();
-        this.#word = word.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');;
+        this.#word = word.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
         this.endGame = false;
         this.moves = [];
         this.#revealed = [...this.#word.replace(/[a-z]/gi, "_")];
@@ -21,10 +21,10 @@ export class Forca {
 
     checkEndGame() {
         if (this.hp >= 6) {
+            this.#alert('O jogo acabou você perdeu a palavra secreta era ' + this.#word, 10);
             this.endGame = true;
-            this.#alert('O jogo acabou você perdeu');
         } else if (this.#revealed.join('') == this.#word) {
-            this.#alert('O jogo acabou você venceu a palavra secreta era ' + this.#word);
+            this.#alert('O jogo acabou você venceu a palavra secreta era ' + this.#word, 10);
             this.endGame = true;
         }
     }
@@ -68,7 +68,7 @@ export class Forca {
         this.checkEndGame();
     }
 
-    #alert(text) {
+    #alert(text, second = 2) {
         let $body = document.querySelector('body');
 
         //criando a DIV onde será adicionada a mensagem de alerta
@@ -91,11 +91,6 @@ export class Forca {
         $body.appendChild($alert);
 
         //Se o player não apertar o botão em até 5 segundo ele mesmo fecha a tela
-        setTimeout(() => $btn.click(), 5000);
+        setTimeout(() => $btn.click(), 1000 * second);
     }
-    /*
-    Função responsavel por criar a tela de alert 
-    document.querySelector("#alerta button").
-    */
-
 }

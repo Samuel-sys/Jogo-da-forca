@@ -7,17 +7,20 @@ const $tema = document.querySelector('#tema');
 const $palavra = document.querySelector('#palavra');
 const $forca = document.querySelector('#forca');
 const $movimentos = document.querySelector('#movimentos');
-const $restart = document.querySelector("#restart");
-$restart.addEventListener('click', CarregaNome);
 
 //Objeto com o a palavra e o tema
 let forca = new Forca("", "");
 
+const $restart = document.querySelector("#restart");
+$restart.addEventListener('click', () => forca.endGame ? novoJogo() : null);
+
 window.onload = function () {
-    CarregaNome();
+    novoJogo();
 }
 
-function CarregaNome() {
+function novoJogo() {
+
+
     let i = Math.floor(Math.random() * palavras.length);;
     console.log('i', i)
     forca = new Forca(palavras[i].tema, palavras[i].palavra);
@@ -26,6 +29,7 @@ function CarregaNome() {
 
 function rederWord() {
 
+    $restart.classList.add('disable')
     //Colocamos tema da palavra chave
     if ($tema.innerHTML != forca.thema) { $tema.innerHTML = forca.thema; }
 
@@ -42,6 +46,9 @@ function rederWord() {
     });
 
     $movimentos.innerHTML = forca.moves.join(", ");
+    $forca.src = `./img/forca-${forca.hp}.png`;
+
+    if(forca.endGame) $restart.classList.remove('disable');
 }
 
 window.onkeyup = function (x) {
@@ -52,5 +59,4 @@ window.onkeyup = function (x) {
         forca.move(x.key);
         rederWord();
     }
-    $forca.src = `./img/forca-${forca.hp}.png`;
 }

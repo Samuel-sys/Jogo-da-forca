@@ -65,6 +65,7 @@ main::after {
   flex-wrap: wrap;
   gap: 5px;
 }
+
 #tema {
   font-size: 25px;
 }
@@ -87,10 +88,16 @@ main::after {
   color: white;
 }
 
+
 #restart{
   width: 45px;
   padding: 15px;
   cursor: pointer;
+}
+
+#restart.disable{
+  filter: grayscale(100);
+  cursor: auto;
 }
 
 #alerta{
