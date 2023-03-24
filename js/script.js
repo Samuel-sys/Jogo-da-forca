@@ -7,19 +7,21 @@ const $tema = document.querySelector('#tema');
 const $palavra = document.querySelector('#palavra');
 const $forca = document.querySelector('#forca');
 const $movimentos = document.querySelector('#movimentos');
+const $restart = document.querySelector("#restart");
+$restart.addEventListener('click', CarregaNome);
 
 //Objeto com o a palavra e o tema
 let forca = new Forca("", "");
 
 window.onload = function () {
     CarregaNome();
-    rederWord();
 }
 
 function CarregaNome() {
     let i = Math.floor(Math.random() * palavras.length);;
     console.log('i', i)
     forca = new Forca(palavras[i].tema, palavras[i].palavra);
+    rederWord();
 }
 
 function rederWord() {
