@@ -17,7 +17,6 @@ export class Forca {
     get thema() { return this.#thema }
 
     //get da palavra em List (array)
-    get #characters() { return [...this.#word] }
     get characters() { return this.#revealed }
 
     checkEndGame() {
