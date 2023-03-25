@@ -12,6 +12,9 @@ export class Forca {
         this.endGame = false;
         this.moves = [];
         this.#revealed = [...this.#word.replace(/[a-z]/gi, "_")];
+
+        //Removemos da tela o alert falando que o jogador ganhou ou perdeu antes de iniciar um novo jogo
+        this.#removeAlert();
     }
 
     get thema() { return this.#thema }
@@ -68,8 +71,12 @@ export class Forca {
         this.checkEndGame();
     }
 
+    #removeAlert() {if (document.querySelector('#alerta')) document.querySelector('body').removeChild(document.querySelector('#alerta'));}
+
     #alert(text, second = 2) {
         let $body = document.querySelector('body');
+
+        this.#removeAlert();
 
         //criando a DIV onde será adicionada a mensagem de alerta
         let $alert = document.createElement('div');
